@@ -1,21 +1,25 @@
 #!/bin/bash
-VIMFOLDER = ./.vim
-VIMRC = ./.vimrc
+sudo apt-get update
+sudo apt-get install -y git
+sudo apt-get install -y zsh
 
-if [ -d "$VIMFOLDER" ]; then
-    echo "Folder $VIMFOLDER exists. Move original one to ./.vim_old"
-    mv $VIMFOLDER ./.vim_old 
-fi
+# configure vim
+git clone https://github.com/derekwyatt/vim-config.git ~/.vim
+ln ~/.vim/vimrc ~/.vimrc
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+git clone https://github.com/LancelotGT/mydotfiles.git
+mv ~/mydotfiles/.vimrc ~/.vimrc 
 
-if [ -f "$VIMRC" ];
-then
-    echo "File $VIMRC exists. Move original one to ./.vim_rc_old"
-    mv $VIMRC ./.vim_rc_old
-fi
+# install tmux
+sudo apt-get build-dep tmux
+git clone https://github.com/tmux/tmux.git
+cd ~/tmux
+./autogen.sh
+./configure && make
+ln -s ~/tmux/tmux /bin/tmux 
 
-# configure vim using ma6174's conf
-echo "START CONFIGURING VIM"
-wget -qO- https://raw.github.com/ma6174/vim/master/setup.sh | sh -x
+# install gnu toolchain
+sudo apt-get install -y build-essential
+sudo apt-get install -y gdb gdb-doc
 
-# Use my own vimrc
-cp ./.vimrc ~/.vimrc 
