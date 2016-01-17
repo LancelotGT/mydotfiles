@@ -1,0 +1,5 @@
+*.swp
+.netrwhist
+passwords.vim
+tags
+*.pyc

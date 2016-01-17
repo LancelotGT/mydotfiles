@@ -41,7 +41,6 @@ Plugin 'bufkill.vim'
 Plugin 'clones/vim-genutils'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'derekwyatt/vim-protodef'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'drmingdrmer/xptemplate'
 Plugin 'elzr/vim-json'
 Plugin 'endel/vim-github-colorscheme'
@@ -68,6 +67,8 @@ Plugin 'vim-scripts/vim-geeknote'
 Plugin 'vimprj'
 Plugin 'whatyouhide/vim-gotham'
 Plugin 'xolox/vim-misc'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'AutoClose'
 call vundle#end()
 filetype plugin indent on
 
@@ -980,3 +981,12 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+
+"-----------------------------------------------------------------------------
+" YouCompleteMe settings
+"-----------------------------------------------------------------------------  
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_confirm_extra_conf=0
+let g:ycm_collect_identifiers_from_tag_files = 1
+set completeopt=longest,menu
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
