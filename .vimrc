@@ -946,6 +946,7 @@ iab teh        the
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 if has("gui_running")
   exe "set guifont=" . g:main_font
   colorscheme monokai
@@ -990,3 +991,10 @@ let g:ycm_confirm_extra_conf=0
 let g:ycm_collect_identifiers_from_tag_files = 1
 set completeopt=longest,menu
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+"-----------------------------------------------------------------------------
+" Highlight unexpected whitespaces
+"-----------------------------------------------------------------------------   
+highlight ExtraWhitespace ctermbg=red guibg=red
+ " Show trailing whitespace:
+match ExtraWhitespace /\s\+\%#\@<!$/
