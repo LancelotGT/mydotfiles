@@ -175,7 +175,7 @@ set guioptions=acg
 "      "," key and the "d" key.  If the "d" key isn't pressed before the
 "      timeout expires, one of two things happens: The "," command is executed
 "      if there is one (which there isn't) or the command aborts.
-set timeoutlen=500
+set timeoutlen=800
 
 " Keep some stuff in the history
 set history=100
@@ -998,3 +998,8 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 highlight ExtraWhitespace ctermbg=red guibg=red
  " Show trailing whitespace:
 match ExtraWhitespace /\s\+\%#\@<!$/
+
+ "-----------------------------------------------------------------------------
+" Vim cscope configuration
+"-----------------------------------------------------------------------------    
+source ~/.vim/ftplugin/cscope_maps.vim
